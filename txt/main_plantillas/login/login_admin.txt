@@ -1,4 +1,4 @@
-        Hola Artista       
+        Hola Administrator       
         +--------------------+
         | 1. Iniciar Sesión  |
         +--------------------+

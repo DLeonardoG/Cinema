@@ -20,8 +20,8 @@ m_1_1_1 = "txt/main_plantillas/admin/1-1-1.txt"
 m_1_1_2 = "txt/main_plantillas/admin/1-1-2.txt"
 m_1_1_3 = "txt/main_plantillas/admin/1-1-3.txt"
 m_1_1_4 = "txt/main_plantillas/admin/1-1-4.txt"
-m_info = "txt/main_plantillas/admin/info.txt"
-m_info_leer = "txt/main_plantillas/admin/info_leer.txt"
+# m_info = "txt/main_plantillas/admin/info.txt"
+# m_info_leer = "txt/main_plantillas/admin/info_leer.txt"
 
 #Menu user
 m_1_2 = "txt/main_plantillas/user/1-2.txt"
