@@ -69,4 +69,4 @@ def eliminar_reserva():
         continuar = very()
         if continuar == "2": break
         else: clear_screen()
-eliminar_reserva()
+#eliminar_reserva()
