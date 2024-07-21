@@ -47,4 +47,5 @@ H --.json--> I((Lectura de datos en el json))
 ```
 
 #### Autores 👤
-Leonardo Gonzalez
+
+@DLeonardoG
