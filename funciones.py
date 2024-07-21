@@ -21,7 +21,7 @@ def id_funciones():
 def crear_funciones(): 
     data = dataOpciones.cargar_datos("json/cine.json")
 
-    # Ingresar el nombre de la pelicula 
+    # Ingresa el nombre de la pelicula 
     peliculas_nombres = [pelicula["nombre"] for pelicula in data["peliculas"]]
     print("Películas disponibles: ")
     mostrar_peliculas()
@@ -30,14 +30,14 @@ def crear_funciones():
         if pelicula.lower() == 'salir':
             print("Proceso cancelado.")
             return
-        # Verificar que la película exista en la lista de películas
+        # Verifica que la película exista en la lista de películas
         if pelicula not in peliculas_nombres:
             print("La película especificada no existe. Por favor, intente de nuevo.")
         else:
             break
     
     while True:
-        # Ingresar la sala
+        # Ingresa la sala
         while True:
             salas_permitidas = ["01", "02", "03", "04"]
             sala = input("Ingrese la sala (01, 02, 03, 04) o escriba 'salir' para cancelar: ")
@@ -48,7 +48,7 @@ def crear_funciones():
                 print("Sala no permitida. Las salas permitidas son: " + ", ".join(salas_permitidas))
             else:
                 break
-        # Ingresar el horario
+        # Ingresa el horario
         while True:
             horarios_permitidos = ["11:00", "14:00", "17:00", "20:00"]
             horario = input("Ingrese el horario (11:00, 14:00, 17:00, 20:00) o escriba 'salir' para cancelar: ")
@@ -60,7 +60,7 @@ def crear_funciones():
             else:
                 break
             
-        # Verificar si la sala esta ocupada en ese horario
+        # Verifica si la sala esta ocupada en ese horario
         repetido = False
         for funcion in data["funciones"]:
             if funcion["sala"] == sala and funcion["horario"] == horario:
@@ -71,7 +71,7 @@ def crear_funciones():
         if not repetido:
             break
     
-     # Ingresar el tipo de función
+     # Ingresa el tipo de función
     while True:
         tipos_permitidos = ["2D", "3D"]
         tipo = input("Ingrese el tipo (2D, 3D) o escriba 'salir' para cancelar: ").upper()
@@ -118,6 +118,11 @@ def consultar_funciones():
 # Función para mostrar funciones según un parametro 
 def consultar_funciones_porllave():
     data = dataOpciones.cargar_datos("json/cine.json")
+
+    # Verifica si no hay funciones disponibles
+    if not data["funciones"]:
+        print("No hay funciones disponibles.")
+        return
 
     # Define las opciones de búsqueda disponibles
     opciones_busqueda = {
@@ -207,10 +212,109 @@ def eliminar_funcion():
         print("Eliminación cancelada.")
         return
 
-    # Eliminar la función y guardar los cambios
+    # Elimina la función y guarda los cambios
     data["funciones"].remove(funcion_encontrada)
     dataOpciones.guardar_datos("json/cine.json", data)
     print(f"La función con ID: {funcion_id} ha sido eliminada exitosamente.")
 
-crear_funciones()
+def actualizar_funcion():
+    data = dataOpciones.cargar_datos("json/cine.json")
+
+    if not data["funciones"]:
+        print("No hay funciones disponibles.")
+        return
+
+    # Solicita ID de la función a actualizar
+    while True:
+        id_funcion = input("Ingrese el ID de la función que desea actualizar (o escriba 'salir' para cancelar): ")
+        if id_funcion.lower() == 'salir':
+            print("Proceso cancelado.")
+            return
+        
+        # Verifica si la función con el ID ingresado existe
+        funcion_a_actualizar = next((funcion for funcion in data["funciones"] if funcion["funciones_id"] == id_funcion), None)
+        if not funcion_a_actualizar:
+            print("ID no encontrado. Intente de nuevo.")
+        else:
+            break
+
+    # Mostrar opciones de actualización
+    opciones_actualizacion = {
+        "1": "pelicula",
+        "2": "sala",
+        "3": "horario",
+        "4": "tipo"
+    }
+
+    while True:
+        print("Opciones de actualización:")
+        print("1. Actualizar película")
+        print("2. Actualizar sala")
+        print("3. Actualizar horario")
+        print("4. Actualizar tipo")
+        opcion = input("Seleccione una opción (1-4) o escriba 'salir' para cancelar: ")
+        if opcion.lower() == 'salir':
+            print("Proceso cancelado.")
+            return
+        if opcion not in opciones_actualizacion:
+            print("Opción no válida. Intente de nuevo.")
+        else:
+            clave = opciones_actualizacion[opcion]
+            break
+    
+    # Actualizar el valor correspondiente
+    if clave == "pelicula":
+        peliculas_nombres = [pelicula["nombre"].lower() for pelicula in data["peliculas"]]
+        while True:
+            nuevo_valor = input(f"Ingrese el nuevo valor para {clave} (o escriba 'salir' para cancelar): ").lower()
+            if nuevo_valor == 'salir':
+                print("Proceso cancelado.")
+                return
+            if nuevo_valor not in peliculas_nombres:
+                print("La película especificada no existe. Intente de nuevo.")
+            else:
+                funcion_a_actualizar[clave] = nuevo_valor
+                break
+    elif clave == "sala":
+        salas_permitidas = ["01", "02", "03", "04"]
+        while True:
+            nuevo_valor = input(f"Ingrese el nuevo valor para {clave} (01, 02, 03, 04) o escriba 'salir' para cancelar: ")
+            if nuevo_valor.lower() == 'salir':
+                print("Proceso cancelado.")
+                return
+            if nuevo_valor not in salas_permitidas:
+                print("Sala no permitida. Las salas permitidas son: " + ", ".join(salas_permitidas))
+            else:
+                funcion_a_actualizar[clave] = nuevo_valor
+                break
+    elif clave == "horario":
+        horarios_permitidos = ["11:00", "14:00", "17:00", "20:00"]
+        while True:
+            nuevo_valor = input(f"Ingrese el nuevo valor para {clave} (11:00, 14:00, 17:00, 20:00) o escriba 'salir' para cancelar: ")
+            if nuevo_valor.lower() == 'salir':
+                print("Proceso cancelado.")
+                return
+            if nuevo_valor not in horarios_permitidos:
+                print("Horario no permitido. Los horarios permitidos son: " + ", ".join(horarios_permitidos))
+            else:
+                funcion_a_actualizar[clave] = nuevo_valor
+                break
+    elif clave == "tipo":
+        tipos_permitidos = ["2D", "3D"]
+        while True:
+            nuevo_valor = input(f"Ingrese el nuevo valor para {clave} (2D, 3D) o escriba 'salir' para cancelar: ").upper()
+            if nuevo_valor.lower() == 'salir':
+                print("Proceso cancelado.")
+                return
+            if nuevo_valor not in tipos_permitidos:
+                print("Tipo no permitido. Los tipos permitidos son: " + ", ".join(tipos_permitidos))
+            else:
+                funcion_a_actualizar[clave] = nuevo_valor
+                break
+    
+    # Guardar los cambios en el archivo JSON
+    dataOpciones.guardar_datos("json/cine.json", data)
+    print("Función actualizada exitosamente.")
+
+consultar_funciones_porllave()
 
