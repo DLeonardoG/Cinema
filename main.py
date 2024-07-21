@@ -16,7 +16,7 @@ while True:
             if op_login == "1":
                 # clear_screen()
                 diseño_logo_artista()
-                print ("login")
+                login()
                 while True:
                     # clear_screen()
                     diseño_logo_artista()
@@ -80,7 +80,7 @@ while True:
                             line()
                             if op_1_1_1 == "1":
                                 # Consultar función
-                               print ("pelicula_funciones.consultar_funcion()")
+                                print ("pelicula_funciones.consultar_funcion()")
                             elif op_1_1_1 == "2": 
                                 # Consultar película
                                 print("pelicula_funciones.consultar_pelicula()")
@@ -97,47 +97,26 @@ while True:
                         print("Opción no válida")
             elif op_login == "2": 
                 diseño_logo_artista()
-                print("Sign up")
-            elif op_login == "3": 
-                break
-            else: 
-                print("Opción no válida")
+                sign_up()
+            elif op_login == "3": break
+            else: print("Opción no válida")
     elif op == "2":
         while True:
             diseño_logo()
-            mostrar_txt(m_login_d)
-            op_login = input("Seleccione una opción:\n👉   ")
+            mostrar_txt(m_1_2)
+            op_1_2 = input("Seleccione una opción:\n👉   ")
             line()
-            if op_login == "1":
-                diseño_logo_discografia()
-                print("Login")
-                while True:
-                    diseño_logo()
-                    mostrar_txt(m_1_2)
-                    op_1_2 = input("Seleccione una opción:\n👉   ")
-                    line()
-                    if op_1_2 == "1": crear_reserva()
-                    elif op_1_2 == "2": 
-                        print("Cartelera")
-                    elif op_1_2 == "3": 
-                        print("Próximamente")
-                    elif op_1_2 == "4": eliminar_reserva()
-                    elif op_1_2 == "5": break
-                    else: 
-                        print("Opción no válida")
-            elif op_login == "2": 
-                diseño_logo_discografia()
-                print("Signup")
-            elif op_login == "3": 
-                break
-            else: 
-                print("Opción no válida")
+            if op_1_2 == "1": crear_reserva()
+            elif op_1_2 == "2": print("Cartelera")
+            elif op_1_2 == "3": print("Próximamente")
+            elif op_1_2 == "4": eliminar_reserva()
+            elif op_1_2 == "5": break
+            else: print("Opción no válida")
     elif op == "3":
         diseño_logo()
         print("¡Adiós!")
         break
-    else: 
-        print("Opción no válida")
+    else: print("Opción no válida")
 
 
 
