@@ -7,6 +7,7 @@ def mostrar_peliculas():
     for pelicula in data["peliculas"]:
         print(f"- {pelicula['nombre']}")
 
+# Función que genera los id para las funciones
 def id_funciones():
     data = dataOpciones.cargar_datos("json/cine.json")
     if not data["funciones"]:
@@ -15,7 +16,8 @@ def id_funciones():
         max_id = max(int(funcion["funciones_id"]) for funcion in data["funciones"])
         new_id = max_id + 1
         return f"{new_id:04d}"
-    
+
+# Función para crear funciones nuevas 
 def crear_funciones(): 
     data = dataOpciones.cargar_datos("json/cine.json")
 
@@ -93,6 +95,7 @@ def crear_funciones():
     data["funciones"].append(nueva_funcion)
     dataOpciones.guardar_datos("json/cine.json", data)
 
+# Función para mostrar todas las funciones 
 def consultar_funciones():
     data = dataOpciones.cargar_datos("json/cine.json")
     
@@ -112,6 +115,7 @@ def consultar_funciones():
         print(f"- Tipo: {funcion['tipo']}")
         print("-" * 50)
 
+# Función para mostrar funciones según un parametro 
 def consultar_funciones_porllave():
     data = dataOpciones.cargar_datos("json/cine.json")
 
@@ -170,4 +174,43 @@ def consultar_funciones_porllave():
         print(f"Tipo: {funcion['tipo']}")
         print("-" * 50)
 
+# Función para eliminar funciones 
+def eliminar_funcion():
+    data = dataOpciones.cargar_datos("json/cine.json")
+
+    # Solicita el ID de la función a eliminar
+    funcion_id = input("Ingrese el ID de la función que desea eliminar: ").strip()
+
+    # Busca la función con el ID proporcionado
+    funcion_encontrada = None
+    for funcion in data["funciones"]:
+        if funcion["funciones_id"] == funcion_id:
+            funcion_encontrada = funcion
+            break
+
+    # Verifica si la función fue encontrada
+    if not funcion_encontrada:
+        print(f"No se encontró ninguna función con el ID: {funcion_id}")
+        return
+
+    # Mnuestra los detalles de la función encontrada y solicita la confirmación para eliminar
+    print("Función encontrada:")
+    print(f"ID: {funcion_encontrada['funciones_id']}")
+    print(f"Película: {funcion_encontrada['pelicula']}")
+    print(f"Sala: {funcion_encontrada['sala']}")
+    print(f"Horario: {funcion_encontrada['horario']}")
+    print(f"Tipo: {funcion_encontrada['tipo']}")
+    confirmacion = input("¿Está seguro de que desea eliminar esta función? (si/no): ").strip().lower()
+
+    # Verifica la confirmación antes de eliminar la función
+    if confirmacion != 'si':
+        print("Eliminación cancelada.")
+        return
+
+    # Eliminar la función y guardar los cambios
+    data["funciones"].remove(funcion_encontrada)
+    dataOpciones.guardar_datos("json/cine.json", data)
+    print(f"La función con ID: {funcion_id} ha sido eliminada exitosamente.")
+
+crear_funciones()
 
