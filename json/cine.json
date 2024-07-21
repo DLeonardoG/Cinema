@@ -24,7 +24,11 @@
             "precio": "12.0"
         },
         {
-            "cliente_id": "5565446"
+            "cliente_id": "1234",
+            "funciones_id": "0001",
+            "pelicula": "minions",
+            "sala": "01",
+            "horario": "11"
         }
     ],
     "peliculas": [
