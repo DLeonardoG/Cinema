@@ -34,6 +34,18 @@
                 "C5"
             ],
             "precio": 12000
+        },
+        {
+            "cliente_id": "123",
+            "funciones_id": "0001",
+            "pelicula": "minions",
+            "sala": "01",
+            "horario": "11",
+            "asientos": [
+                "E2",
+                "E3"
+            ],
+            "precio": 12000
         }
     ],
     "peliculas": [
