@@ -4,8 +4,15 @@
             "pelicula": "minions",
             "sala": "01",
             "funciones_id": "0001",
-            "horario": "11",
+            "horario": "11:00",
             "tipo": "2D"
+        },
+        {
+            "funciones_id": "0002",
+            "pelicula": "minions",
+            "sala": "02",
+            "horario": "11:00",
+            "tipo": "3D"
         }
     ],
     "reservas": [
@@ -15,7 +22,12 @@
             "sala": "01",
             "funciones_id": "0001",
             "horario": "8",
-            "asientos": ["A1", "A2", "A3", "A4"],
+            "asientos": [
+                "A1",
+                "A2",
+                "A3",
+                "A4"
+            ],
             "precio": "12.0"
         }
     ],

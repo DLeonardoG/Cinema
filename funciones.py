@@ -93,3 +93,81 @@ def crear_funciones():
     data["funciones"].append(nueva_funcion)
     dataOpciones.guardar_datos("json/cine.json", data)
 
+def consultar_funciones():
+    data = dataOpciones.cargar_datos("json/cine.json")
+    
+    # Verifica si no hay funciones disponibles
+    if not data["funciones"]:
+        print("No hay funciones disponibles.")
+        return
+    
+    # Muestra todas las funciones disponibles 
+    print("Funciones disponibles:")
+    print("-" * 50)
+    for funcion in data["funciones"]:
+        print(f"- ID: {funcion['funciones_id']}")
+        print(f"- Película: {funcion['pelicula']}")
+        print(f"- Sala: {funcion['sala']}")
+        print(f"- Horario: {funcion['horario']}")
+        print(f"- Tipo: {funcion['tipo']}")
+        print("-" * 50)
+
+def consultar_funciones_porllave():
+    data = dataOpciones.cargar_datos("json/cine.json")
+
+    # Define las opciones de búsqueda disponibles
+    opciones_busqueda = {
+        "1": "funciones_id",
+        "2": "pelicula",
+        "3": "sala",
+        "4": "horario",
+        "5": "tipo"
+    }
+
+    # Muestra al administrador las opciones de búsqueda
+    print("Opciones de búsqueda:")
+    print("1. ID")
+    print("2. Película")
+    print("3. Sala")
+    print("4. Horario")
+    print("5. Tipo")
+
+    # Solicita las opciones de búsqueda hasta que se ingrese una opción válida o se escriba 'salir'
+    while True:
+        opcion = input("Seleccione una opción de búsqueda (1-5) o escriba 'salir' para cancelar: ").lower()
+        if opcion == 'salir':
+            print("Proceso cancelado.")
+            return
+        if opcion in opciones_busqueda:
+            break
+        print("Opción no válida. Intente de nuevo.")
+
+    # Obtiene la llave correspondiente a la opción seleccionada
+    llave = opciones_busqueda[opcion]
+
+    # Solicita el valor para la llave seleccionada
+    valor = input(f"Ingrese el valor para {llave} o escriba 'salir' para cancelar: ").lower()
+    if valor == 'salir':
+        print("Proceso cancelado.")
+        return
+
+    # Busca las funciones que coincidan con el valor ingresado para la llave seleccionada
+    funciones_encontradas = [funcion for funcion in data["funciones"] if funcion[llave].lower() == valor]
+
+    # Verifica si se encontraron funciones
+    if not funciones_encontradas:
+        print(f"No se encontraron funciones para {llave}: {valor}")
+        return
+
+    # Muestra las funciones encontradas
+    print(f"Funciones encontradas para {llave}: {valor}")
+    print("-" * 50)
+    for funcion in funciones_encontradas:
+        print(f"ID: {funcion['funciones_id']}")
+        print(f"Película: {funcion['pelicula']}")
+        print(f"Sala: {funcion['sala']}")
+        print(f"Horario: {funcion['horario']}")
+        print(f"Tipo: {funcion['tipo']}")
+        print("-" * 50)
+
+
