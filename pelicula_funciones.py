@@ -2,7 +2,7 @@ import json
 import diseños
 
 data = []
-RUTA_ARCHIVO = "lista_peliculas.json"
+RUTA_ARCHIVO = "json\cine.json"
 
 def guardar_datos():
     global data
@@ -22,6 +22,19 @@ def cargar_datos():
     except Exception as e:
         print(f"Error al cargar datos desde el archivo JSON: {e}")
         data = []
+
+
+
+
+
+def pelicula_existe(titulo):
+    for pelicula in data:
+        if pelicula["Título"].lower() == titulo.lower():
+            return True
+    return False
+
+
+
 
 def crear_peliculas():
     global data

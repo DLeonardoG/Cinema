@@ -1,31 +1,9 @@
-{
-    "funciones": [
-        {
-            "pelicula": "minions",
-            "sala": "01",
-            "funciones_id": "0001",
-            "horario": "11",
-            "tipo": "2D"
-        }
-    ],
-    "reservas": [
-        {
-            "cliente_id": "1097983645",
-            "pelicula": "minions",
-            "sala": "01",
-            "funciones_id": "0001",
-            "horario": "8",
-            "asientos": ["A1", "A2", "A3", "A4"],
-            "precio": "12.0"
-        }
-    ],
-    "peliculas": [
-        {
-            "nombre": "minions",
-            "sinopsis": "Es la pelicula del pasado de los minions",
-            "duracion": "190 min",
-            "genero": "animacion",
-            "clasificacion": "todo publico"
-        }
-    ]
-}
+[
+    {
+        "T\u00edtulo": "aaaa",
+        "Director": "aaaaaaaaaaaaaa",
+        "G\u00e9nero": "aaaaaaaaaaaaaaaaaaaaaa",
+        "A\u00f1o": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "Sinopsis": "aaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    }
+]

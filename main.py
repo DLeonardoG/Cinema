@@ -2,11 +2,6 @@ from importaciones import *
 import pelicula_funciones
 
 
-
-
-
-from importaciones import *
-
 while True:
     # clear_screen()
     diseño_logo()
