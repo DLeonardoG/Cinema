@@ -17,7 +17,22 @@ def crear_reservas(datos: dict):
             reservas["pelicula"]=datos["funciones"][i]["pelicula"]
             reservas["sala"]=datos["funciones"][i]["sala"]
             reservas["horario"]=datos["funciones"][i]["horario"]
-            print_(" la reserva de ",reservas["pelicula"]," registrado con éxito!")
+            
+            while True:
+                asi = input ("Cuantos asientos va a reservar: ")
+                try:
+                    asi = int(asi)
+                    break
+                except ValueError:
+                    print("Inténtalo de nuevo.")
+            reservas["asientos"]=[]
+            for i in range(asi):
+                selec = seleccion_asiento()
+                reservas["asientos"].append(selec)
+            precio = 6000 * asi
+            reservas["precio"]=precio
+            
+            print_("La reserva de ",reservas["pelicula"]," ha sido registrada a ",reservas["cliente_id"]," con éxito!")
             datos["reservas"].append(reservas)
             return datos
         
@@ -33,28 +48,25 @@ def crear_reserva():
         if continuar == "2": break
         else: clear_screen()
 
-crear_reserva()
+# crear_reserva()
 
-def eliminar_reserva_(datos: dict):
+def eliminar_reservas(datos: dict):
     clear_screen()
     nombre =input("Ingrese el numero de identificacion: ").lower()
     for i in range(len(datos["reservas"])):
-        if datos["reservas"][i]["nombre"] == nombre:
-            
-            informacion = (datos["reservas"][i]["pelicula"])
+        if datos["reservas"][i]["cliente_id"] == nombre:
             datos["reservas"].pop(i)
-            separador = " "
-            informacion = separador.join(map(str, informacion))
-            print(informacion," se ha eliminado con exito...")
+            print(f"La reserva de",nombre," se ha eliminado con exito...")
             return datos
     print (f"La reserva de ",nombre," no esta resgistrada...")    
     return datos
 
-def eliminar_info():
+def eliminar_reserva():
     while True:
         datos = cargar_datos(RUTA_BASE_DE_DATOS)
-        datos = eliminar_reserva_(datos)
+        datos = eliminar_reservas(datos)
         guardar_datos(datos, RUTA_BASE_DE_DATOS)
         continuar = very()
         if continuar == "2": break
         else: clear_screen()
+eliminar_reserva()

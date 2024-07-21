@@ -28,7 +28,12 @@
             "funciones_id": "0001",
             "pelicula": "minions",
             "sala": "01",
-            "horario": "11"
+            "horario": "11",
+            "asientos": [
+                "C4",
+                "C5"
+            ],
+            "precio": 12000
         }
     ],
     "peliculas": [
