@@ -39,13 +39,18 @@ El proyecto CineSuit consiste en un aplicativo de un cine en desarrollo que se d
 graph LR
 A[CineSuit] --> B(Admin)
 A[CineSuit] --> C(Usuario)
-B ----> E((Crear funcion))
-B ----> F((Crear peliculas))
-B ----> G((Crear ))
-H --.json--> I((Lectura de datos en el json)) 
- 
+B ----> E((manejar funciones))
+B ----> F((manejar peliculas))
+C(Usuario) --> G((reservar))
+
 ```
 
 #### Autores 👤
 
-@DLeonardoG
+Leonardo Gonzalez
+Michelle Sánchez
+Laura Rodríguez
+Mariana Rueda
+Juan Esteban Alfonso
+
+
