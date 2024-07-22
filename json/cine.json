@@ -64,13 +64,24 @@
             "precio": 12000
         },
         {
-            "cliente_id": "inception",
-            "funciones_id": "0006",
-            "pelicula": "inception",
-            "sala": "04",
-            "horario": "20:00",
+            "cliente_id": "123534",
+            "funciones_id": "0004",
+            "pelicula": "jurassic world",
+            "sala": "03",
+            "horario": "11:00",
             "asientos": [
-                "A2"
+                "C9"
+            ],
+            "precio": 6000
+        },
+        {
+            "cliente_id": "5345676543",
+            "funciones_id": "0007",
+            "pelicula": "la",
+            "sala": "03",
+            "horario": "17:00",
+            "asientos": [
+                "D10"
             ],
             "precio": 6000
         }
@@ -103,27 +114,6 @@
             "duracion": "148 min",
             "genero": "ciencia ficci\u00f3n",
             "clasificacion": "mayores de 13 a\u00f1os"
-        },
-        {
-            "nombre": "maruchan y santiago",
-            "clasificacion": "sexoooo",
-            "genero": "assa",
-            "duracion": "asas",
-            "sinopsis": "Santiago y Mariana forever"
-        },
-        {
-            "nombre": "mm",
-            "clasificacion": "18",
-            "genero": "rock",
-            "duracion": "190",
-            "sinopsis": "holi"
-        },
-        {
-            "nombre": "lama",
-            "clasificacion": "lama",
-            "genero": "lama",
-            "duracion": "lama",
-            "sinopsis": "a"
         }
     ]
 }

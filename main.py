@@ -82,7 +82,7 @@ while True:
             op_1_2 = input("Seleccione una opcion:\n👉   ")
             line()
             if op_1_2 == "1": crear_reserva()
-            elif op_1_2 == "2": print ("cartelera")
+            elif op_1_2 == "2": cartelera()
             elif op_1_2 == "3": eliminar_reserva()
             elif op_1_2 == "4": break
             else: print ("opcion no valida")

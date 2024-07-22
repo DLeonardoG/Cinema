@@ -131,7 +131,7 @@ def seleccion_asiento():
         asiento = input("Seleccione un asiento (por ejemplo, A1): ").strip().upper()
         rows = ['A', 'B', 'C', 'D', 'E']
         columns = [str(i) for i in range(1, 11)]
-        if len(asiento) == 2 and asiento[0] in rows and asiento[1:] in columns:
+        if len(asiento) == 2 or len(asiento) == 3 and asiento[0] in rows and asiento[1:] in columns:
             cine_asientos(asiento)
             return asiento
         else:

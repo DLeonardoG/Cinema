@@ -2,6 +2,26 @@ from datos import *
 from funciones_secundarias import *
 from diseños import *
 
+def mostrar_cartelera(datos: dict): 
+    clear_screen()
+    diseño_logo()
+    print_ ("F U N C I O N E S  D I S P O N I B L E S")
+    for sn in range(len(datos["funciones"])):
+        print_("- ID: ", datos["funciones"][sn]["funciones_id"].capitalize())
+        print_("- Película: ", datos["funciones"][sn]["pelicula"].capitalize())
+        print_("- Horario: ", datos["funciones"][sn]["horario"].capitalize())
+        print_( "-" * 30)
+    return datos
+
+def cartelera():
+    while True:
+        datos = cargar_datos(RUTA_BASE_DE_DATOS)
+        datos = mostrar_cartelera(datos)
+        guardar_datos(datos, RUTA_BASE_DE_DATOS)
+        continuar = very()
+        if continuar == "2": break
+        else: clear_screen()
+
 def crear_reservas(datos: dict):
     reservas={}
     clear_screen()
