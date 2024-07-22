@@ -112,6 +112,8 @@ def crear_funciones():
     data["funciones"].append(nueva_funcion)
     guardar_datos("json/cine.json", data)
 
+def esperar_tecla():
+    input("Presiona Enter para continuar...")
 # Función para mostrar todas las funciones 
 def consultar_funciones():
     data = cargar_datos("json/cine.json")
@@ -131,6 +133,7 @@ def consultar_funciones():
         print(f"- Horario: {funcion['horario']}")
         print(f"- Tipo: {funcion['tipo']}")
         print("-" * 50)
+        esperar_tecla()
 
 # Función para mostrar funciones según un parametro 
 def consultar_funciones_porllave():
@@ -195,6 +198,7 @@ def consultar_funciones_porllave():
         print(f"Horario: {funcion['horario']}")
         print(f"Tipo: {funcion['tipo']}")
         print("-" * 50)
+        esperar_tecla()
 
 # Función para eliminar funciones 
 def eliminar_funcion():
