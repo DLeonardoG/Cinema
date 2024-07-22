@@ -238,7 +238,7 @@ def actualizar_funcion():
         else:
             break
 
-    # Mostrar opciones de actualización
+    # Muestra las opciones que se pueden actualizar 
     opciones_actualizacion = {
         "1": "pelicula",
         "2": "sala",
@@ -251,7 +251,7 @@ def actualizar_funcion():
         print("1. Actualizar película")
         print("2. Actualizar sala")
         print("3. Actualizar horario")
-        print("4. Actualizar tipo")
+        print("4. Actualizar tipo de sala")
         opcion = input("Seleccione una opción (1-4) o escriba 'salir' para cancelar: ")
         if opcion.lower() == 'salir':
             print("Proceso cancelado.")
@@ -262,9 +262,12 @@ def actualizar_funcion():
             clave = opciones_actualizacion[opcion]
             break
     
-    # Actualizar el valor correspondiente
+    # Actualiza la opción seleccionada 
+    # Si la opción seleccionada fue pelicula 
     if clave == "pelicula":
         peliculas_nombres = [pelicula["nombre"].lower() for pelicula in data["peliculas"]]
+        print("Películas disponibles: ")
+        mostrar_peliculas()
         while True:
             nuevo_valor = input(f"Ingrese el nuevo valor para {clave} (o escriba 'salir' para cancelar): ").lower()
             if nuevo_valor == 'salir':
@@ -275,6 +278,7 @@ def actualizar_funcion():
             else:
                 funcion_a_actualizar[clave] = nuevo_valor
                 break
+    # Si la opción seleccionada fue sala 
     elif clave == "sala":
         salas_permitidas = ["01", "02", "03", "04"]
         while True:
@@ -287,6 +291,7 @@ def actualizar_funcion():
             else:
                 funcion_a_actualizar[clave] = nuevo_valor
                 break
+    # Si la opción seleccionada fue horario
     elif clave == "horario":
         horarios_permitidos = ["11:00", "14:00", "17:00", "20:00"]
         while True:
@@ -299,6 +304,7 @@ def actualizar_funcion():
             else:
                 funcion_a_actualizar[clave] = nuevo_valor
                 break
+    # Si la opción seleccionada fue tipo de sala 
     elif clave == "tipo":
         tipos_permitidos = ["2D", "3D"]
         while True:
@@ -316,5 +322,5 @@ def actualizar_funcion():
     dataOpciones.guardar_datos("json/cine.json", data)
     print("Función actualizada exitosamente.")
 
-consultar_funciones_porllave()
+actualizar_funcion()
 

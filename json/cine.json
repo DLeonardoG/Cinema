@@ -20,6 +20,13 @@
             "sala": "01",
             "horario": "11:00",
             "tipo": "3D"
+        },
+        {
+            "funciones_id": "0006",
+            "pelicula": "inception",
+            "sala": "04",
+            "horario": "20:00",
+            "tipo": "2D"
         }
     ],
     "reservas": [
