@@ -1,4 +1,0 @@
-        C o n t r a t o s
-1 . G e n e r a r  c o n t r a t o
-2 . V e r  c o n t r a t o s
-3 . R e g r e s a r ↩️
