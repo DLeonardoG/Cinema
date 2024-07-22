@@ -339,3 +339,10 @@ def actualizar_funcion():
     guardar_datos("json/cine.json", data)
     print("Función actualizada exitosamente.")
 
+
+    #crear_funciones()
+    #consultar_funciones() muestra todas las funciones 
+    #consultar_funciones_porllave() muestra las funciones por parametro
+    #eliminar_funcion() 
+    #actualizar_funcion()
+
