@@ -52,13 +52,16 @@ def crear_peliculas():
             print("----------------------------------------------------------------------------------")
             pelicula["Sinopsis"] = input("Ingrese una breve sinopsis de la película: ")
             print("----------------------------------------------------------------------------------")
-            data.append(pelicula)  # Agregar la película a la lista en memoria
+            data["peliculas"].append(pelicula)
+            data["peliculas"].append(pelicula)# Agregar la película a la lista en memoria
             guardar_datos()  # Guardar los datos actualizados en el archivo JSON
         elif opcc.lower() == "no":
             break
         else:
             print("Opción no válida. Por favor, ingrese una opción válida.")
             continue
+        
+crear_peliculas()
 
 def eliminar_pelicula():
     global data
@@ -67,16 +70,14 @@ def eliminar_pelicula():
     titulo = input("Ingrese el título de la película que desea eliminar: ")
     
     encontrada = False
-    for pelicula in data:
-        if pelicula['Título'] == titulo:
-            data.remove(pelicula)
+    for i in range(len(data["peliculas"])):
+        if data["peliculas"][i]["Título"] == titulo:
+            data["peliculas"].pop(i)
             encontrada = True
             print(f"Película '{titulo}' eliminada de la lista en memoria.")
             break
-    
     if not encontrada:
         print(f"No se encontró la película '{titulo}' en la lista en memoria.")
-    
     guardar_datos()  # Guardar los datos actualizados en el archivo JSON
 
 def actualizar_pelicula():
@@ -86,8 +87,8 @@ def actualizar_pelicula():
     titulo = input("Ingrese el título de la película que desea actualizar: ")
     
     encontrada = False
-    for pelicula in data:
-        if pelicula['Título'] == titulo:
+    for i in range(len(data["peliculas"])):
+        if data["peliculas"][i]["Título"] == titulo:
             print("Datos actuales de la película:")
             print(f"Título: {pelicula['Título']}")
             print(f"Director: {pelicula['Director']}")
@@ -102,10 +103,10 @@ def actualizar_pelicula():
             nuevo_año = input(f"Ingrese el nuevo año (actual: {pelicula['Año']}): ") or pelicula['Año']
             
             # Actualizar los datos en la lista en memoria
-            pelicula['Título'] = nuevo_titulo
-            pelicula['Director'] = nuevo_director
-            pelicula['Género'] = nuevo_genero
-            pelicula['Año'] = nuevo_año
+            data["peliculas"][i]["Título"] = nuevo_titulo
+            data["peliculas"][i]['Director'] = nuevo_director
+            data["peliculas"][i]['Género'] = nuevo_genero
+            data["peliculas"][i]['Año'] = nuevo_año
             
             encontrada = True
             print(f"Película '{titulo}' actualizada en la lista en memoria.")
@@ -115,31 +116,6 @@ def actualizar_pelicula():
         print(f"No se encontró la película '{titulo}' en la lista en memoria.")
     
     guardar_datos()  # Guardar los datos actualizados en el archivo JSON
-
-def consultar_funcion():
-    global data
-    diseños.diseño_logo_artista()
-    print("Consulta de Función")
-    nombre_funcion = input("Ingrese el nombre de la función que desea consultar: ")
-    
-    # Cargar los datos desde el archivo JSON para reflejar cambios recientes
-    cargar_datos()
-    
-    encontrada = False
-    for pelicula in data:
-        if 'Funciones' in pelicula:
-            for funcion in pelicula['Funciones']:
-                if funcion['Nombre'] == nombre_funcion:
-                    print(f"Detalles de la función '{nombre_funcion}':")
-                    print(f"Fecha: {funcion['Fecha']}")
-                    print(f"Hora: {funcion['Hora']}")
-                    encontrada = True
-                    break
-        if encontrada:
-            break
-    
-    if not encontrada:
-        print(f"No se encontró la función '{nombre_funcion}'.")
 
 def consultar_pelicula():
     global data
@@ -151,16 +127,15 @@ def consultar_pelicula():
     cargar_datos()
     
     encontrada = False
-    for pelicula in data:
-        if pelicula['Título'] == titulo_pelicula:
-            print(f"Detalles de la película '{titulo_pelicula}':")
-            print(f"Director: {pelicula['Director']}")
-            print(f"Género: {pelicula['Género']}")
-            print(f"Año: {pelicula['Año']}")
-            if 'Sinopsis' in pelicula:
-                print(f"Sinopsis: {pelicula['Sinopsis']}")
-                encontrada = True
-                break
+    for i in range(len(data["peliculas"])):
+        if data["peliculas"][i]["Título"] == titulo_pelicula:
+            print(f"Detalles de la película '{data["peliculas"][i]["Título"]}':")
+            print(f"Director: {data["peliculas"][i]['Director']}")
+            print(f"Género: {data["peliculas"][i]['Género']}")
+            print(f"Año: {data["peliculas"][i]['Año']}")
+            print(f"Sinopsis: {data["peliculas"][i]['Sinopsis']}")
+            encontrada = True
+            break
     
     if not encontrada:
         print(f"No se encontró la película '{titulo_pelicula}'.")
