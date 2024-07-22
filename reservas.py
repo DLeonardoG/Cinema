@@ -8,11 +8,14 @@ def crear_reservas(datos: dict):
     diseño_logo()
     print_ ("F U N C I O N E S  D I S P O N I B L E S")
     for sn in range(len(datos["funciones"])):
-        print_(datos["funciones"][sn]["pelicula"].capitalize())
+        print_("- ID: ", datos["funciones"][sn]["funciones_id"].capitalize())
+        print_("- Película: ", datos["funciones"][sn]["pelicula"].capitalize())
+        print_("- Horario: ", datos["funciones"][sn]["horario"].capitalize())
+        print_( "-" * 30)
     reservas["cliente_id"]=input("Ingrese su numero de identificación: ")
-    funcion = input("Ingrese la funcion que desea: ").lower()
+    funcion = input("Ingrese el ID de la función que desea reservar: ").lower()
     for i in range(len(datos["funciones"])):
-        if datos["funciones"][i]["pelicula"] == funcion:
+        if datos["funciones"][i]["funciones_id"] == funcion:
             reservas["funciones_id"]=datos["funciones"][i]["funciones_id"]
             reservas["pelicula"]=datos["funciones"][i]["pelicula"]
             reservas["sala"]=datos["funciones"][i]["sala"]

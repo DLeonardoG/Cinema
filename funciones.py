@@ -4,7 +4,6 @@ import json
 def cargar_datos(nombre_archivo): 
     try: 
         with open(nombre_archivo, "r", encoding="utf-8") as file:
-            print ("Datos cargados exitosamente")
             return json.load(file)
     except Exception as e: 
         print(f"Error al cargar los datos {e}")
@@ -40,7 +39,6 @@ def crear_funciones():
 
     # Ingresa el nombre de la pelicula 
     peliculas_nombres = [pelicula["nombre"] for pelicula in data["peliculas"]]
-    print("Películas disponibles: ")
     mostrar_peliculas()
     while True:
         pelicula = input("Ingrese el nombre de la película (o escriba 'salir' para cancelar): ").lower()
@@ -287,7 +285,6 @@ def actualizar_funcion():
     # Si la opción seleccionada fue pelicula 
     if clave == "pelicula":
         peliculas_nombres = [pelicula["nombre"].lower() for pelicula in data["peliculas"]]
-        print("Películas disponibles: ")
         mostrar_peliculas()
         while True:
             nuevo_valor = input(f"Ingrese el nuevo valor para {clave} (o escriba 'salir' para cancelar): ").lower()
