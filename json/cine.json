@@ -1,10 +1,31 @@
 {
     "funciones": [
         {
+            "funciones_id": "0002",
+            "pelicula": "minions",
+            "sala": "02",
+            "horario": "11:00",
+            "tipo": "3D"
+        },
+        {
+            "funciones_id": "0004",
+            "pelicula": "jurassic world",
+            "sala": "03",
+            "horario": "11:00",
+            "tipo": "2D"
+        },
+        {
+            "funciones_id": "0005",
             "pelicula": "minions",
             "sala": "01",
-            "funciones_id": "0001",
-            "horario": "11",
+            "horario": "11:00",
+            "tipo": "3D"
+        },
+        {
+            "funciones_id": "0006",
+            "pelicula": "inception",
+            "sala": "04",
+            "horario": "20:00",
             "tipo": "2D"
         }
     ],
@@ -15,6 +36,12 @@
             "sala": "01",
             "funciones_id": "0001",
             "horario": "8",
+            "asientos": [
+                "A1",
+                "A2",
+                "A3",
+                "A4"
+            ],
             "asientos": [
                 "A1",
                 "A2",
@@ -55,6 +82,27 @@
             "duracion": "190 min",
             "genero": "animacion",
             "clasificacion": "todo publico"
+        },
+        {
+            "nombre": "jurassic world",
+            "sinopsis": "Una nueva aventura en un parque temático de dinosaurios.",
+            "duracion": "150 min",
+            "genero": "aventura",
+            "clasificacion": "mayores de 12 años"
+        },
+        {
+            "nombre": "la la land",
+            "sinopsis": "Un musical romántico que sigue a dos aspirantes en Los Ángeles.",
+            "duracion": "128 min",
+            "genero": "musical",
+            "clasificacion": "mayores de 7 años"
+        },
+        {
+            "nombre": "inception",
+            "sinopsis": "Un ladrón especializado en robar secretos a través de los sueños recibe una oferta para realizar el trabajo perfecto.",
+            "duracion": "148 min",
+            "genero": "ciencia ficción",
+            "clasificacion": "mayores de 13 años"
         },
         {
             "nombre": "maruchan y santiago",

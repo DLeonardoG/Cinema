@@ -1,5 +1,5 @@
         C o n s u l t a r
 1 . F u n c i o n e s
 2 . P e l i c u l a s
-3 . S a l a s
+3 . F u n c i o n  e s p e c i f i c a
 4 . R e g r e s a r ↩️ 

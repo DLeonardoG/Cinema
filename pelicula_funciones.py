@@ -60,7 +60,7 @@ def eliminar_peliculas(datos: dict):
             datos["peliculas"].pop(i)
             print(f"La pelicula de",nombre," se ha eliminado con exito...")
             return datos
-    print (f"La pelicula de ",nombre," no esta resgistrada...")    
+    print (f"La pelicula de ",nombre," no esta registrada...")    
     return datos
 
 def eliminar_pelicula():
