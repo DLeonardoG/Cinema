@@ -1,147 +1,148 @@
 import json
-import diseños
-
-data = []
-RUTA_ARCHIVO = "json\cine.json"
-
-def guardar_datos():
-    global data
-    try:
-        with open(RUTA_ARCHIVO, "w") as file:
-            json.dump(data, file, indent=4)
-        print("Datos guardados exitosamente en el archivo JSON!!")
-    except Exception as e:
-        print(f"Error al guardar datos en el archivo JSON: {e}")
-
-def cargar_datos():
-    global data
-    try:
-        with open(RUTA_ARCHIVO, "r") as file:
-            data = json.load(file)
-        print("Datos cargados exitosamente desde el archivo JSON!!")
-    except Exception as e:
-        print(f"Error al cargar datos desde el archivo JSON: {e}")
-        data = []
+from diseños import *
+from datos import *
+from funciones_secundarias import *
 
 
 
 
 
 def pelicula_existe(titulo):
-    for pelicula in data:
-        if pelicula["Título"].lower() == titulo.lower():
+    for pelicula in datos:
+        if pelicula["nombre"].lower() == titulo.lower():
             return True
     return False
 
 
 
 
-def crear_peliculas():
-    global data
+def crear_peliculas(datos:dict):
     while True:
         pelicula = {}
-        diseños.diseño_logo_artista()
+        diseño_logo_artista()
         print("Bienvenido al registro de películas")
         opcc = input("¿Desea registrar una película? (si o no): ")
         
         if opcc.lower() == "si":
-            pelicula["Título"] = input("Ingrese el título de la película: ")
-            pelicula["Director"] = input("Ingrese el nombre del director: ")
-            pelicula["Género"] = input("Ingrese el género de la película: ")
-            pelicula["Año"] = input("Ingrese el año de lanzamiento: ")
+            pelicula["nombre"] = input("Ingrese el nombre de la película: ")
+            pelicula["clasificacion"] = input("Ingrese la clasificacion: ")
+            pelicula["genero"] = input("Ingrese el genero de la película: ")
+            pelicula["duracion"] = input("Ingrese el duracion de la pelicula: ")
             print("----------------------------------------------------------------------------------")
-            pelicula["Sinopsis"] = input("Ingrese una breve sinopsis de la película: ")
+            pelicula["sinopsis"] = input("Ingrese una breve sinopsis de la película: ")
             print("----------------------------------------------------------------------------------")
-            data["peliculas"].append(pelicula)
-            data["peliculas"].append(pelicula)# Agregar la película a la lista en memoria
-            guardar_datos()  # Guardar los datos actualizados en el archivo JSON
+            datos["peliculas"].append(pelicula)
+            return datos
+            # Agregar la película a la lista en memoria # Guardar los datos actualizados en el archivo JSON
         elif opcc.lower() == "no":
-            break
+            return datos
         else:
             print("Opción no válida. Por favor, ingrese una opción válida.")
             continue
-        
-crear_peliculas()
+
+def crear_pelicula():
+    while True:
+        datos = cargar_datos(RUTA_BASE_DE_DATOS)
+        datos = crear_peliculas(datos)
+        guardar_datos(datos, RUTA_BASE_DE_DATOS)
+        continuar = very()
+        if continuar == "2": break
+        else: clear_screen()
+
+# crear_pelicula()
+# Guardar los datos actualizados en el archivo JSON
+
+def eliminar_peliculas(datos: dict):
+    clear_screen()
+    nombre =input("Ingrese el nombre de la pelicula: ").lower()
+    for i in range(len(datos["peliculas"])):
+        if datos["peliculas"][i]["nombre"] == nombre:
+            datos["peliculas"].pop(i)
+            print(f"La pelicula de",nombre," se ha eliminado con exito...")
+            return datos
+    print (f"La pelicula de ",nombre," no esta resgistrada...")    
+    return datos
 
 def eliminar_pelicula():
-    global data
-    diseños.diseño_logo_artista()
-    print("Eliminación de Película")
-    titulo = input("Ingrese el título de la película que desea eliminar: ")
-    
-    encontrada = False
-    for i in range(len(data["peliculas"])):
-        if data["peliculas"][i]["Título"] == titulo:
-            data["peliculas"].pop(i)
-            encontrada = True
-            print(f"Película '{titulo}' eliminada de la lista en memoria.")
-            break
-    if not encontrada:
-        print(f"No se encontró la película '{titulo}' en la lista en memoria.")
-    guardar_datos()  # Guardar los datos actualizados en el archivo JSON
+    while True:
+        datos = cargar_datos(RUTA_BASE_DE_DATOS)
+        datos = eliminar_peliculas(datos)
+        guardar_datos(datos, RUTA_BASE_DE_DATOS)
+        continuar = very()
+        if continuar == "2": break
+        else: clear_screen()
+#eliminar_pelicula()
 
-def actualizar_pelicula():
-    global data
-    diseños.diseño_logo_artista()
+def actualizar_peliculas(datos:dict):
+    diseño_logo_artista()
     print("Actualización de Película")
-    titulo = input("Ingrese el título de la película que desea actualizar: ")
-    
-    encontrada = False
-    for i in range(len(data["peliculas"])):
-        if data["peliculas"][i]["Título"] == titulo:
+    titulo = input("Ingrese el nombre de la película que desea actualizar: ")
+    for i in range(len(datos["peliculas"])):
+        if datos["peliculas"][i]["nombre"] == titulo:
             print("Datos actuales de la película:")
-            print(f"Título: {pelicula['Título']}")
-            print(f"Director: {pelicula['Director']}")
-            print(f"Género: {pelicula['Género']}")
-            print(f"Año: {pelicula['Año']}")
+            print(f"nombre: {datos["peliculas"][i]["nombre"]}")
+            print(f"clasificacion: {datos["peliculas"][i]['clasificacion']}")
+            print(f"genero: {datos["peliculas"][i]['genero']}")
+            print(f"duracion: {datos["peliculas"][i]['duracion']}")
             print("------------------------")
             
             # Solicitar al usuario los nuevos datos
-            nuevo_titulo = input(f"Ingrese el nuevo título (actual: {pelicula['Título']}): ") or pelicula['Título']
-            nuevo_director = input(f"Ingrese el nuevo director (actual: {pelicula['Director']}): ") or pelicula['Director']
-            nuevo_genero = input(f"Ingrese el nuevo género (actual: {pelicula['Género']}): ") or pelicula['Género']
-            nuevo_año = input(f"Ingrese el nuevo año (actual: {pelicula['Año']}): ") or pelicula['Año']
+            nuevo_titulo = input(f"Ingrese el nuevo nombre: ")
+            nuevo_clasificacion = input(f"Ingrese la nueva clasificacion: ")
+            nuevo_genero = input(f"Ingrese el nuevo genero: ")
+            nuevo_duracion = input(f"Ingrese la nueva duracion: ")
             
             # Actualizar los datos en la lista en memoria
-            data["peliculas"][i]["Título"] = nuevo_titulo
-            data["peliculas"][i]['Director'] = nuevo_director
-            data["peliculas"][i]['Género'] = nuevo_genero
-            data["peliculas"][i]['Año'] = nuevo_año
-            
-            encontrada = True
-            print(f"Película '{titulo}' actualizada en la lista en memoria.")
-            break
+            datos["peliculas"][i]["nombre"] = nuevo_titulo
+            datos["peliculas"][i]['clasificacion'] = nuevo_clasificacion
+            datos["peliculas"][i]['genero'] = nuevo_genero
+            datos["peliculas"][i]['duracion'] = nuevo_duracion
+            print(f"Película {titulo} actualizada en la lista en memoria.")
+            return datos
     
-    if not encontrada:
-        print(f"No se encontró la película '{titulo}' en la lista en memoria.")
-    
-    guardar_datos()  # Guardar los datos actualizados en el archivo JSON
+    print(f"No se encontró la película {titulo} en la lista en memoria.")
+    return datos
+    # Guardar los datos actualizados en el archivo JSON
+def actualizar_pelicula():
+    while True:
+        datos = cargar_datos(RUTA_BASE_DE_DATOS)
+        datos = actualizar_peliculas(datos)
+        guardar_datos(datos, RUTA_BASE_DE_DATOS)
+        continuar = very()
+        if continuar == "2": break
+        else: clear_screen()
+
+# actualizar_pelicula()
+
+def consultar_peliculas(datos:dict):
+    diseño_logo_artista()
+    print("Consulta de Película")
+    titulo = input("Ingrese el nombre de la película que desea consultar: ")
+    # Cargar los datos desde el archivo JSON para reflejar cambios recientes
+    for i in range(len(datos["peliculas"])):
+        if datos["peliculas"][i]["nombre"] == titulo:
+            print(f"Detalles de la película '{datos["peliculas"][i]["nombre"]}':")
+            print(f"clasificacion: {datos["peliculas"][i]['clasificacion']}")
+            print(f"genero: {datos["peliculas"][i]['genero']}")
+            print(f"duracion: {datos["peliculas"][i]['duracion']}")
+            print(f"sinopsis: {datos["peliculas"][i]['sinopsis']}")
+            return datos
+    print(f"No se encontró la película '{titulo}'.")
+    return datos
 
 def consultar_pelicula():
-    global data
-    diseños.diseño_logo_artista()
-    print("Consulta de Película")
-    titulo_pelicula = input("Ingrese el título de la película que desea consultar: ")
-    
-    # Cargar los datos desde el archivo JSON para reflejar cambios recientes
-    cargar_datos()
-    
-    encontrada = False
-    for i in range(len(data["peliculas"])):
-        if data["peliculas"][i]["Título"] == titulo_pelicula:
-            print(f"Detalles de la película '{data["peliculas"][i]["Título"]}':")
-            print(f"Director: {data["peliculas"][i]['Director']}")
-            print(f"Género: {data["peliculas"][i]['Género']}")
-            print(f"Año: {data["peliculas"][i]['Año']}")
-            print(f"Sinopsis: {data["peliculas"][i]['Sinopsis']}")
-            encontrada = True
-            break
-    
-    if not encontrada:
-        print(f"No se encontró la película '{titulo_pelicula}'.")
+    while True:
+        datos = cargar_datos(RUTA_BASE_DE_DATOS)
+        datos = consultar_peliculas(datos)
+        guardar_datos(datos, RUTA_BASE_DE_DATOS)
+        continuar = very()
+        if continuar == "2": break
+        else: clear_screen()
+        
+# consultar_pelicula()
 
 def consultar_salas():
-    global data
+    global datos
     diseños.diseño_logo_artista()
     print("Consulta de Salas")
     salas_disponibles = set()
@@ -149,7 +150,7 @@ def consultar_salas():
     # Cargar los datos desde el archivo JSON para reflejar cambios recientes
     cargar_datos()
     
-    for pelicula in data:
+    for pelicula in datos:
         if 'Salas' in pelicula:
             for sala in pelicula['Salas']:
                 salas_disponibles.add(sala)
