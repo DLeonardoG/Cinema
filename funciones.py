@@ -132,7 +132,7 @@ def consultar_funciones():
         print(f"- Horario: {funcion['horario']}")
         print(f"- Tipo: {funcion['tipo']}")
         print("-" * 50)
-        esperar_tecla()
+    esperar_tecla()
 
 # Función para mostrar funciones según un parametro 
 def consultar_funciones_porllave():
@@ -197,7 +197,7 @@ def consultar_funciones_porllave():
         print(f"Horario: {funcion['horario']}")
         print(f"Tipo: {funcion['tipo']}")
         print("-" * 50)
-        esperar_tecla()
+    esperar_tecla()
 
 # Función para eliminar funciones 
 def eliminar_funcion():
