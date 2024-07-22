@@ -96,24 +96,24 @@
         },
         {
             "nombre": "jurassic world",
-            "sinopsis": "Una nueva aventura en un parque tem\u00e1tico de dinosaurios.",
+            "sinopsis": "Una nueva aventura en un parque tematico de dinosaurios.",
             "duracion": "150 min",
             "genero": "aventura",
-            "clasificacion": "mayores de 12 a\u00f1os"
+            "clasificacion": "mayores de 12 años"
         },
         {
             "nombre": "la la land",
-            "sinopsis": "Un musical rom\u00e1ntico que sigue a dos aspirantes en Los \u00c1ngeles.",
+            "sinopsis": "Un musical romantico que sigue a dos aspirantes en Los Angeles.",
             "duracion": "128 min",
             "genero": "musical",
-            "clasificacion": "mayores de 7 a\u00f1os"
+            "clasificacion": "mayores de 7 años"
         },
         {
             "nombre": "inception",
-            "sinopsis": "Un ladr\u00f3n especializado en robar secretos a trav\u00e9s de los sue\u00f1os recibe una oferta para realizar el trabajo perfecto.",
+            "sinopsis": "Un ladron especializado en robar secretos a traves de los sueños recibe una oferta para realizar el trabajo perfecto.",
             "duracion": "148 min",
-            "genero": "ciencia ficci\u00f3n",
-            "clasificacion": "mayores de 13 a\u00f1os"
+            "genero": "ciencia ficción",
+            "clasificacion": "mayores de 13 años"
         }
     ]
 }
