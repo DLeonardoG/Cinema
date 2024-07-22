@@ -1,15 +1,32 @@
-import datos as dataOpciones
-import json
+import json 
 
+# Función para cargar datos desde el JSON 
+def cargar_datos(nombre_archivo): 
+    try: 
+        with open(nombre_archivo, "r", encoding="utf-8") as file:
+            print ("Datos cargados exitosamente")
+            return json.load(file)
+    except Exception as e: 
+        print(f"Error al cargar los datos {e}")
+
+# Función para guardar datos en el JSON 
+def guardar_datos(nombre_archivo, data): 
+    try: 
+        with open (nombre_archivo, "w", encoding="utf-8") as file: 
+            json.dump(data, file, indent=4, ensure_ascii=False)
+    except Exception as e: 
+        print(f"Error al guardar los datos: {e}")
+
+# Función para mostrar los nombres de la películas 
 def mostrar_peliculas():
-    data = dataOpciones.cargar_datos("json/cine.json")
+    data = cargar_datos("json/cine.json")
     print("Películas disponibles:")
     for pelicula in data["peliculas"]:
         print(f"- {pelicula['nombre']}")
 
 # Función que genera los id para las funciones
 def id_funciones():
-    data = dataOpciones.cargar_datos("json/cine.json")
+    data = cargar_datos("json/cine.json")
     if not data["funciones"]:
         return "0001"
     else:
@@ -19,7 +36,7 @@ def id_funciones():
 
 # Función para crear funciones nuevas 
 def crear_funciones(): 
-    data = dataOpciones.cargar_datos("json/cine.json")
+    data = cargar_datos("json/cine.json")
 
     # Ingresa el nombre de la pelicula 
     peliculas_nombres = [pelicula["nombre"] for pelicula in data["peliculas"]]
@@ -93,11 +110,11 @@ def crear_funciones():
     }
 
     data["funciones"].append(nueva_funcion)
-    dataOpciones.guardar_datos("json/cine.json", data)
+    guardar_datos("json/cine.json", data)
 
 # Función para mostrar todas las funciones 
 def consultar_funciones():
-    data = dataOpciones.cargar_datos("json/cine.json")
+    data = cargar_datos("json/cine.json")
     
     # Verifica si no hay funciones disponibles
     if not data["funciones"]:
@@ -117,7 +134,7 @@ def consultar_funciones():
 
 # Función para mostrar funciones según un parametro 
 def consultar_funciones_porllave():
-    data = dataOpciones.cargar_datos("json/cine.json")
+    data = cargar_datos("json/cine.json")
 
     # Verifica si no hay funciones disponibles
     if not data["funciones"]:
@@ -181,7 +198,7 @@ def consultar_funciones_porllave():
 
 # Función para eliminar funciones 
 def eliminar_funcion():
-    data = dataOpciones.cargar_datos("json/cine.json")
+    data = cargar_datos("json/cine.json")
 
     # Solicita el ID de la función a eliminar
     funcion_id = input("Ingrese el ID de la función que desea eliminar: ").strip()
@@ -214,11 +231,11 @@ def eliminar_funcion():
 
     # Elimina la función y guarda los cambios
     data["funciones"].remove(funcion_encontrada)
-    dataOpciones.guardar_datos("json/cine.json", data)
+    guardar_datos("json/cine.json", data)
     print(f"La función con ID: {funcion_id} ha sido eliminada exitosamente.")
 
 def actualizar_funcion():
-    data = dataOpciones.cargar_datos("json/cine.json")
+    data = cargar_datos("json/cine.json")
 
     if not data["funciones"]:
         print("No hay funciones disponibles.")
@@ -319,8 +336,6 @@ def actualizar_funcion():
                 break
     
     # Guardar los cambios en el archivo JSON
-    dataOpciones.guardar_datos("json/cine.json", data)
+    guardar_datos("json/cine.json", data)
     print("Función actualizada exitosamente.")
-
-actualizar_funcion()
 
