@@ -33,6 +33,13 @@ def id_funciones():
         new_id = max_id + 1
         return f"{new_id:04d}"
 
+# Funciones para verificar si una sala ya esta ocupada
+def sala_ocupada(data, sala, horario):
+    for funcion in data["funciones"]:
+        if funcion["sala"] == sala and funcion["horario"] == horario:
+            return True
+    return False
+
 # Función para crear funciones nuevas 
 def crear_funciones(): 
     data = cargar_datos("json/cine.json")
@@ -76,16 +83,11 @@ def crear_funciones():
                 break
             
         # Verifica si la sala esta ocupada en ese horario
-        repetido = False
-        for funcion in data["funciones"]:
-            if funcion["sala"] == sala and funcion["horario"] == horario:
-                repetido = True
-                print("Ya existe una función en la misma sala y horario. Por favor, ingrese una sala o horario diferente.")
-                break
-        
-        if not repetido:
+        if sala_ocupada(data, sala, horario):
+            print("Ya existe una función en la misma sala y horario. Por favor, ingrese una sala o horario diferente.")
+        else:
             break
-    
+
      # Ingresa el tipo de función
     while True:
         tipos_permitidos = ["2D", "3D"]
@@ -307,6 +309,8 @@ def actualizar_funcion():
                 return
             if nuevo_valor not in salas_permitidas:
                 print("Sala no permitida. Las salas permitidas son: " + ", ".join(salas_permitidas))
+            elif sala_ocupada(data, nuevo_valor, funcion_a_actualizar["horario"]):
+                print("Ya existe una función en la misma sala y horario. Por favor, ingrese una sala o horario diferente.")
             else:
                 funcion_a_actualizar[clave] = nuevo_valor
                 break
@@ -320,6 +324,8 @@ def actualizar_funcion():
                 return
             if nuevo_valor not in horarios_permitidos:
                 print("Horario no permitido. Los horarios permitidos son: " + ", ".join(horarios_permitidos))
+            elif sala_ocupada(data, funcion_a_actualizar["sala"], nuevo_valor):
+                print("Ya existe una función en la misma sala y horario. Por favor, ingrese una sala o horario diferente.")
             else:
                 funcion_a_actualizar[clave] = nuevo_valor
                 break
@@ -342,9 +348,4 @@ def actualizar_funcion():
     print("Función actualizada exitosamente.")
 
 
-    #crear_funciones()
-    #consultar_funciones() muestra todas las funciones 
-    #consultar_funciones_porllave() muestra las funciones por parametro
-    #eliminar_funcion() 
-    #actualizar_funcion()
 

@@ -92,19 +92,6 @@ def sillas_de_cine():
     """
     print_(seating)
 
-def seleccion_asiento():
-    while True:
-        cine_asientos()
-        asiento = input("Seleccione un asiento (por ejemplo, A1): ").strip().upper()
-        rows = ['A', 'B', 'C', 'D', 'E']
-        columns = [str(i) for i in range(1, 11)]
-        if len(asiento) == 2 or len(asiento) == 3 and asiento[0] in rows and asiento[1:] in columns:
-            for i in range(len(datos["peliculas"])):
-                if datos["peliculas"][i]["nombre"] == nombre:
-                    cine_asientos(asiento)
-                    return asiento
-        else:
-            print("Asiento inválido. Inténtalo de nuevo.")
 
 
 

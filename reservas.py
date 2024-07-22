@@ -54,7 +54,24 @@ def cine_asientos(asiento=None):
     
     print(seating)
 
-
+def verificar_asiento(datos: dict, funcion: str) -> str:
+    rows = ['A', 'B', 'C', 'D', 'E']
+    columns = [str(i) for i in range(1, 11)]
+    while True:
+        cine_asientos()
+        asiento = input("Seleccione un asiento (por ejemplo, A1): ").strip().upper()
+        if (len(asiento) == 2 or len(asiento) == 3) and asiento[0] in rows and asiento[1:] in columns:
+            asiento_disponible = True
+            for reserva in datos["reservas"]:
+                if reserva["funciones_id"] == funcion and asiento in reserva["asientos"]:
+                    print("Este asiento ya está reservado. Inténtalo de nuevo.")
+                    asiento_disponible = False
+                    break
+            if asiento_disponible:
+                cine_asientos(asiento)
+                return asiento
+        else:
+            print("Asiento inválido. Inténtalo de nuevo.")
 
 def crear_reservas(datos: dict):
     reservas={}
@@ -84,28 +101,9 @@ def crear_reservas(datos: dict):
                     print("Inténtalo de nuevo.")
             reservas["asientos"]=[]
             for i in range(asi):
-                while True:
-                    cine_asientos()
-                    asiento = input("Seleccione un asiento (por ejemplo, A1): ").strip().upper()
-                    rows = ['A', 'B', 'C', 'D', 'E']
-                    columns = [str(i) for i in range(1, 11)]
-                    if len(asiento) == 2 or len(asiento) == 3 and asiento[0] in rows and asiento[1:] in columns:
-                        for i in range(len(datos["reservas"])):
-                            if datos["reservas"][i]["finciones_id"] == funcion:
-                                for reserva in datos["reservas"]:
-                                    for silla in reserva["asientos"]:
-                                        if silla.lower() == asiento.lower():
-                                            print("Este asiento ya está reservado. Inténtalo de nuevo.")
-                                            continue
-                                        
-                                        
-                                # for i in range(len(datos["reservas"][i]["asientos"])):
-                                #     if datos["reservas"][i]["asientos"] == funcion:
-                                #         cine_asientos(asiento)
-                            
-        else:
-            print("Asiento inválido. Inténtalo de nuevo.")
+                selec = verificar_asiento(datos, funcion)
                 reservas["asientos"].append(selec)
+
             precio = 6000 * asi
             reservas["precio"]=precio
             

@@ -3,7 +3,7 @@
         {
             "funciones_id": "0002",
             "pelicula": "minions",
-            "sala": "02",
+            "sala": "04",
             "horario": "11:00",
             "tipo": "3D"
         },
@@ -34,6 +34,13 @@
             "sala": "03",
             "horario": "17:00",
             "tipo": "2D"
+        },
+        {
+            "funciones_id": "0008",
+            "pelicula": "minions",
+            "sala": "03",
+            "horario": "14:00",
+            "tipo": "3D"
         }
     ],
     "reservas": [
@@ -84,6 +91,63 @@
                 "D10"
             ],
             "precio": 6000
+        },
+        {
+            "cliente_id": "34345",
+            "funciones_id": "0004",
+            "pelicula": "jurassic world",
+            "sala": "03",
+            "horario": "11:00",
+            "asientos": [
+                "D10"
+            ],
+            "precio": 12000
+        },
+        {
+            "cliente_id": "43433",
+            "funciones_id": "0004",
+            "pelicula": "jurassic world",
+            "sala": "03",
+            "horario": "11:00",
+            "asientos": [
+                "D7"
+            ],
+            "precio": 6000
+        },
+        {
+            "cliente_id": "00000",
+            "funciones_id": "0007",
+            "pelicula": "la",
+            "sala": "03",
+            "horario": "17:00",
+            "asientos": [
+                "B10"
+            ],
+            "precio": 12000
+        },
+        {
+            "cliente_id": "4344",
+            "funciones_id": "0006",
+            "pelicula": "inception",
+            "sala": "04",
+            "horario": "20:00",
+            "asientos": [
+                "C6",
+                "B2"
+            ],
+            "precio": 12000
+        },
+        {
+            "cliente_id": "03434",
+            "funciones_id": "0007",
+            "pelicula": "la",
+            "sala": "03",
+            "horario": "17:00",
+            "asientos": [
+                "E9",
+                "E10"
+            ],
+            "precio": 12000
         }
     ],
     "peliculas": [
