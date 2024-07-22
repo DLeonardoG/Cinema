@@ -109,6 +109,7 @@ def crear_funciones():
 
     data["funciones"].append(nueva_funcion)
     guardar_datos("json/cine.json", data)
+    print(f"La función ha sido creada exitosamente.")
 
 def esperar_tecla():
     input("Presiona Enter para continuar...")

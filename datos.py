@@ -8,8 +8,8 @@ def cargar_datos(archivo):
 
 def guardar_datos(datos, archivo):
     datos = dict(datos)
-    diccionario = json.dumps(datos, indent=4)
-    with open(archivo, "w", encoding="utf-8", ensure_ascii=False) as file:
+    diccionario = json.dumps(datos, indent=4, ensure_ascii=False)
+    with open(archivo, "w", encoding="utf-8") as file:
         file.write(diccionario)
     
 RUTA_BASE_DE_DATOS ="json/cine.json"
