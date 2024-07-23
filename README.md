@@ -4,11 +4,13 @@
 | Indice | Título  |
 |--|--|
 | 1. | [Descripción](#Descripcion) |
-| 2. | [Caracteristicas Principales](#Caracteristicas) |
-| 3. | [Tecnologias Utilizadas](#Tecnologias) |
-| 4. | [Instrucciones de Ejecución](#Instrucciones-de-ejecucion) |
-| 5. | [Mapa](#Mapa) |
-| 6. | [Autores](#Autores) |
+| 2. | [Características](#Características) |
+| 3. | [Tecnologías Utilizadas](#Tecnologias) |
+| 4. | [Uso del Repositorio](#Uso) |
+| 5. | [Instrucciones de Ejecución](#Instrucciones) |
+| 6. | [Mapa](#Mapa) |
+| 7. | [Autores](#Autores) |
+| 8. | [Contacto](#Contacto) |
 
 #### Descripcion 🚀
 
@@ -48,9 +50,11 @@ C(Usuario) --> G((reservar))
 #### Autores 👤
 
 Leonardo Gonzalez
+
 Michelle Sánchez
+
 Laura Rodríguez
+
 Mariana Rueda
+
 Juan Esteban Alfonso
-
-
