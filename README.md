@@ -17,10 +17,9 @@ El proyecto CineSuit consiste en un aplicativo de un cine en desarrollo que se d
 
 ## Caracteristicas🧮
 
-1. **Admin** 👥: 
-1.1 **Crear funciones** 👥: Permite registrar y añadir informacion de la ciudad que se quiere crear
+1. **Admin** 👥: Permite registrar y añadir todo lo necesario que se necesita en la funcionalidad de cine
 
-2. **Usuario** 🌐: Permite
+2. **Usuario** 🌐: Permite acceder a las peliculas y a la cartelera para realizar la reserva o cancelar la reserva
 
 
 ## Tecnologias🖥️
