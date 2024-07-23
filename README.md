@@ -49,10 +49,10 @@ C(Usuario) --> G((reservar))
 
 [Leonardo Gonzalez](https://github.com/DLeonardoG)
 
-Michelle Sánchez
+[Laura Rodríguez](https://github.com/laura2ndrea)
 
-Laura Rodríguez
+[Michelle Sánchez](https://github.com/miDaya02)
 
-Mariana Rueda
+[Mariana Rueda](https://github.com/mariana34r)
 
-Juan Esteban Alfonso
+[Juan Esteban Alfonso](https://github.com/juanalfonsocampus)
