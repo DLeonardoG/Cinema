@@ -39,9 +39,9 @@ El proyecto CineSuit consiste en un aplicativo de un cine en desarrollo que se d
 graph LR
 A[CineSuit] --> B(Admin)
 A[CineSuit] --> C(Usuario)
-B ----> E((manejar funciones))
-B ----> F((manejar peliculas))
-C(Usuario) --> G((reservar))
+B ----> E((Administrar funciones))
+B ----> F((Administrar peliculas))
+C(Usuario) --> G((Reservar))
 
 ```
 
