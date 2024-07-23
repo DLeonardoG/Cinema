@@ -36,14 +36,17 @@ El proyecto CineSuit consiste en un aplicativo de un cine en desarrollo que se d
 ## Mapa 
 
 ```mermaid
-graph LR
-A[CineSuit] --> B(Admin)
-A[CineSuit] --> C(Usuario)
-B ----> E((Administrar funciones))
-B ----> F((Administrar peliculas))
-C(Usuario) --> G((Reservar))
-
+graph TD
+    A[Cinesuit] --> B[Administrador]
+    A --> C[Usuario]
+    C --> D[Reservar]
+    C --> E[Cancelar Reserva]
+    C --> F[Cartelera]
+    B --> G[Administrar Funciones]
+    B --> H[Administrar Peliculas]
+    B --> I[Administrar Cartelera]
 ```
+
 
 ## Autores👤
 
