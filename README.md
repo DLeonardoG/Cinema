@@ -4,19 +4,18 @@
 | Indice | Título  |
 |--|--|
 | 1. | [Descripción](#Descripcion) |
-| 2. | [Características](#Características) |
+| 2. | [Características](#Caracteristicas) |
 | 3. | [Tecnologías Utilizadas](#Tecnologias) |
 | 4. | [Uso del Repositorio](#Uso) |
 | 5. | [Instrucciones de Ejecución](#Instrucciones) |
 | 6. | [Mapa](#Mapa) |
 | 7. | [Autores](#Autores) |
-| 8. | [Contacto](#Contacto) |
 
-#### Descripcion 🚀
+## Descripcion🚀
 
 El proyecto CineSuit consiste en un aplicativo de un cine en desarrollo que se desea un aplicativo que le permita añadir sus peliculas, sus funciones a su vez que le permite a los usuarios reservar sus asientos en las funciones deseadas.
 
-#### Caracteristicas 🧮
+## Caracteristicas🧮
 
 1. **Admin** 👥: 
 1.1 **Crear funciones** 👥: Permite registrar y añadir informacion de la ciudad que se quiere crear
@@ -24,18 +23,18 @@ El proyecto CineSuit consiste en un aplicativo de un cine en desarrollo que se d
 2. **Usuario** 🌐: Permite
 
 
-#### Tecnologias  🖥️
+## Tecnologias🖥️
 
 - **Python** 🐍: Todas la aplicacion esta hecha con python.
 
 
-#### Instrucciones de ejecucion 📐
+## Instrucciones📐
 
 1. Clona el repositorio a tu máquina local. 
 2. Configura adecuadamente todo lo adecuado drespecto a python.
 3. Ejecuta el proyecto desde la terminal.
 
-#### Mapa 
+## Mapa 
 
 ```mermaid
 graph LR
@@ -47,7 +46,7 @@ C(Usuario) --> G((reservar))
 
 ```
 
-#### Autores 👤
+## Autores 👤
 
 Leonardo Gonzalez
 
