@@ -47,7 +47,7 @@ C(Usuario) --> G((reservar))
 
 ## Autores👤
 
-Leonardo Gonzalez
+[Leonardo Gonzalez](https://github.com/DLeonardoG)
 
 Michelle Sánchez
 
