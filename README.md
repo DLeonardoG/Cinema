@@ -45,7 +45,7 @@ C(Usuario) --> G((reservar))
 
 ```
 
-## Autores 👤
+## Autores👤
 
 Leonardo Gonzalez
 
