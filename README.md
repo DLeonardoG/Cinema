@@ -1,54 +1,52 @@
 # CineSuit 🌏🌐
 
-## Tabla de contenido
-| Indice | Título  |
+## Table of Contents
+| Index | Title  |
 |--|--|
-| 1. | [Descripción](#Descripcion) |
-| 2. | [Características](#Caracteristicas) |
-| 3. | [Tecnologías Utilizadas](#Tecnologias) |
-| 4. | [Uso del Repositorio](#Uso) |
-| 5. | [Instrucciones de Ejecución](#Instrucciones) |
-| 6. | [Mapa](#Mapa) |
-| 7. | [Autores](#Autores) |
+| 1. | [Description](#Description) |
+| 2. | [Features](#Features) |
+| 3. | [Technologies Used](#Technologies) |
+| 4. | [Repository Usage](#Usage) |
+| 5. | [Execution Instructions](#Instructions) |
+| 6. | [Map](#Map) |
+| 7. | [Authors](#Authors) |
 
-## Descripcion🚀
+## Description🚀
 
-El proyecto CineSuit consiste en un aplicativo de un cine en desarrollo que se desea un aplicativo que le permita añadir sus peliculas, sus funciones a su vez que le permite a los usuarios reservar sus asientos en las funciones deseadas.
+The CineSuit project consists of a cinema application under development. It is designed to allow the addition of movies, manage showtimes, and enable users to reserve or cancel seats for their desired showtimes.
 
-## Caracteristicas🧮
+## Features🧮
 
-1. **Admin** 👥: Permite registrar y añadir todo lo necesario que se necesita en la funcionalidad de cine
+1. **Admin** 👥: Allows registering and managing everything needed for cinema functionalities.
 
-2. **Usuario** 🌐: Permite acceder a las peliculas y a la cartelera para realizar la reserva o cancelar la reserva
+2. **User** 🌐: Enables access to movies and the billboard to make or cancel reservations.
 
+## Technologies🖥️
 
-## Tecnologias🖥️
+- **Python** 🐍: The entire application is built with Python.
 
-- **Python** 🐍: Todas la aplicacion esta hecha con python.
+## Instructions📐
 
+1. Clone the repository to your local machine.  
+2. Properly configure all the necessary Python settings.  
+3. Run the project from the terminal.
 
-## Instrucciones📐
-
-1. Clona el repositorio a tu máquina local. 
-2. Configura adecuadamente todo lo adecuado drespecto a python.
-3. Ejecuta el proyecto desde la terminal.
-
-## Mapa 
+## Map 
 
 ```mermaid
 graph TD
-    A[Cinesuit] --> B[Administrador]
-    A --> C[Usuario]
-    C --> D[Reservar]
-    C --> E[Cancelar Reserva]
-    C --> F[Cartelera]
-    B --> G[Administrar Funciones]
-    B --> H[Administrar Peliculas]
-    B --> I[Administrar Cartelera]
+    A[CineSuit] --> B[Administrator]
+    A --> C[User]
+    C --> D[Reserve]
+    C --> E[Cancel Reservation]
+    C --> F[Billboard]
+    B --> G[Manage Showtimes]
+    B --> H[Manage Movies]
+    B --> I[Manage Billboard]
 ```
 
 
-## Autores👤
+## Autors👤
 
 [Leonardo Gonzalez](https://github.com/DLeonardoG)
 
